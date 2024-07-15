@@ -19,5 +19,33 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "hw1.html",
+    "href": "hw1.html",
+    "title": "7/15 숙제1",
+    "section": "",
+    "text": "ctrl alt P\n\nimport pandas as pd\ndf = pd.DataFrame({\n  \"col1\": [1, 2, 3]\n})\ndf\n\n\n\n\n\n\n\n\ncol1\n\n\n\n\n0\n1\n\n\n1\n2\n\n\n2\n3"
+  },
+  {
+    "objectID": "hw1.html#다음-표의-내용을-데이터-프레임으로",
+    "href": "hw1.html#다음-표의-내용을-데이터-프레임으로",
+    "title": "7/15 숙제1",
+    "section": "",
+    "text": "ctrl alt P\n\nimport pandas as pd\ndf = pd.DataFrame({\n  \"col1\": [1, 2, 3]\n})\ndf\n\n\n\n\n\n\n\n\ncol1\n\n\n\n\n0\n1\n\n\n1\n2\n\n\n2\n3"
+  },
+  {
+    "objectID": "hw1.html#다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요.",
+    "href": "hw1.html#다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요.",
+    "title": "7/15 숙제1",
+    "section": "다음 표의 내용을 데이터 프레임으로 만들어 출력해 보세요.",
+    "text": "다음 표의 내용을 데이터 프레임으로 만들어 출력해 보세요.\n\nimport pandas as pd\ndf = pd.DataFrame({\n  '제품': [\"사과\", \"딸기\", \"수박\"],\n  '가격': [1800, 1500, 3000],\n  '판매량': [24, 3, 13]\n})\ndf\n\n\n\n\n\n\n\n\n제품\n가격\n판매량\n\n\n\n\n0\n사과\n1800\n24\n\n\n1\n딸기\n1500\n3\n\n\n2\n수박\n3000\n13"
+  },
+  {
+    "objectID": "hw1.html#앞에서-만든-데이터-프레임을-이용해-과일의-가격-평균과-판매량-평균을-구해-보세요.",
+    "href": "hw1.html#앞에서-만든-데이터-프레임을-이용해-과일의-가격-평균과-판매량-평균을-구해-보세요.",
+    "title": "7/15 숙제1",
+    "section": "앞에서 만든 데이터 프레임을 이용해 과일의 가격 평균과 판매량 평균을 구해 보세요.",
+    "text": "앞에서 만든 데이터 프레임을 이용해 과일의 가격 평균과 판매량 평균을 구해 보세요."
   }
 ]
