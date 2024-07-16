@@ -4,6 +4,10 @@ toc: false
 about:
   id: hero-heading
   template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/H-yoEunK
 jupyter: python3
 ---
 
