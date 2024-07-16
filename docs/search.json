@@ -103,5 +103,26 @@
     "title": "7/15 숙제1",
     "section": "’large’와 ’small’에 해당하는 지역이 얼마나 많은지 빈도표와 빈도 막대 그래프를 만들어 확인해 보세요.",
     "text": "’large’와 ’small’에 해당하는 지역이 얼마나 많은지 빈도표와 빈도 막대 그래프를 만들어 확인해 보세요.\n\npd.crosstab(df[\"county\"], df[\"per_asian_mean\"])\n\n\n\n\n\n\n\nper_asian_mean\nlarge\nsmall\n\n\ncounty\n\n\n\n\n\n\nADAMS\n0\n4\n\n\nALCONA\n0\n1\n\n\nALEXANDER\n0\n1\n\n\nALGER\n0\n1\n\n\nALLEGAN\n0\n1\n\n\n...\n...\n...\n\n\nWINNEBAGO\n1\n0\n\n\nWOOD\n2\n0\n\n\nWOODFORD\n0\n1\n\n\nWYANDOT\n0\n1\n\n\nWinnebago\n1\n0\n\n\n\n\n320 rows × 2 columns\n\n\n\n\ncount = df[\"per_asian_mean\"].value_counts()\ncount.plot.bar(rot = 0)\nplt.show()"
+  },
+  {
+    "objectID": "hw2.html#자동차-배기량에-따라-고속도로-연비가-다른지-알아보려고-합니다.-displ배기량이-4-이하인-자동차와-5-이상인-자동차-중-어떤-자동차의-hwy고속도로-연비-평균이-더-높은지-알아보세요.",
+    "href": "hw2.html#자동차-배기량에-따라-고속도로-연비가-다른지-알아보려고-합니다.-displ배기량이-4-이하인-자동차와-5-이상인-자동차-중-어떤-자동차의-hwy고속도로-연비-평균이-더-높은지-알아보세요.",
+    "title": "7/16 숙제2",
+    "section": "자동차 배기량에 따라 고속도로 연비가 다른지 알아보려고 합니다. displ(배기량)이 4 이하인 자동차와 5 이상인 자동차 중 어떤 자동차의 hwy(고속도로 연비) 평균이 더 높은지 알아보세요.",
+    "text": "자동차 배기량에 따라 고속도로 연비가 다른지 알아보려고 합니다. displ(배기량)이 4 이하인 자동차와 5 이상인 자동차 중 어떤 자동차의 hwy(고속도로 연비) 평균이 더 높은지 알아보세요.\n\nimport pandas as pd\ndf = pd.read_csv(\"mpg.csv\")\ndispl_4 = df.query(\"displ &lt;= 4\")\ndispl_5 = df.query(\"displ &gt;= 5\")\n\nprint(\"배기량 4 이하:\", displ_4[\"hwy\"].mean(), \"배기량 5 이상:\", displ_5[\"hwy\"].mean())\n\n배기량 4 이하: 25.96319018404908 배기량 5 이상: 18.07894736842105"
+  },
+  {
+    "objectID": "hw2.html#자동차-제조-회사에-따라-도시-연비가-어떻게-다른지-알아보려고-합니다.-audi와-toyota-중-어느-manufacturer자동차-제조-회사의-cty도시-연비-평균이-더-높은지-알아보세요.",
+    "href": "hw2.html#자동차-제조-회사에-따라-도시-연비가-어떻게-다른지-알아보려고-합니다.-audi와-toyota-중-어느-manufacturer자동차-제조-회사의-cty도시-연비-평균이-더-높은지-알아보세요.",
+    "title": "7/16 숙제2",
+    "section": "자동차 제조 회사에 따라 도시 연비가 어떻게 다른지 알아보려고 합니다. ‘audi’와 ’toyota’ 중 어느 manufacturer(자동차 제조 회사)의 cty(도시 연비) 평균이 더 높은지 알아보세요.",
+    "text": "자동차 제조 회사에 따라 도시 연비가 어떻게 다른지 알아보려고 합니다. ‘audi’와 ’toyota’ 중 어느 manufacturer(자동차 제조 회사)의 cty(도시 연비) 평균이 더 높은지 알아보세요.\n\naudi = df.query(\"manufacturer == 'audi'\")\ntoyota = df.query(\"manufacturer == 'toyota'\")\n\nprint(\"audi:\", audi[\"cty\"].mean(), \"toyota:\", toyota[\"cty\"].mean())\n\naudi: 17.61111111111111 toyota: 18.529411764705884"
+  },
+  {
+    "objectID": "hw2.html#chevrolet-ford-honda-자동차의-고속도로-연비-평균을-알아보려고-합니다.-세-회사의-데이터를-추출한-다음-hwy-전체-평균을-구해-보세요.",
+    "href": "hw2.html#chevrolet-ford-honda-자동차의-고속도로-연비-평균을-알아보려고-합니다.-세-회사의-데이터를-추출한-다음-hwy-전체-평균을-구해-보세요.",
+    "title": "7/16 숙제2",
+    "section": "‘chevrolet’, ‘ford’, ‘honda’ 자동차의 고속도로 연비 평균을 알아보려고 합니다. 세 회사의 데이터를 추출한 다음 hwy 전체 평균을 구해 보세요.",
+    "text": "‘chevrolet’, ‘ford’, ‘honda’ 자동차의 고속도로 연비 평균을 알아보려고 합니다. 세 회사의 데이터를 추출한 다음 hwy 전체 평균을 구해 보세요.\n\ncfh = df.query(\"manufacturer in ['chevrolet', 'ford', 'honda']\")\ncfh[\"hwy\"].mean()\n\n22.50943396226415"
   }
 ]
