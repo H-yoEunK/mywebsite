@@ -1,5 +1,8 @@
 ---
-title: "7/15 숙제1"
+title: "숙제1"
+author: "권효은"
+date: "2024-07-15"
+categories: [bigdata]
 jupyter: python3
 ---
 ### 1

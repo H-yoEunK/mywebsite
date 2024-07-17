@@ -1,0 +1,8 @@
+---
+title: "myblog"
+listing:
+  contents: posts
+  sort: "data desc"
+  type: default
+  categories: true
+---
