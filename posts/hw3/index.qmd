@@ -10,21 +10,13 @@ jupyter: python3
 ## 정규분포 pdf 값을 계산하는 자신만의 Python 함수를 정의하고 정규분포 mu = 3, sigma = 2의 pdf를 그릴 것
 
 ```{python}
-from scipy.stats import bernoulli
-from scipy.stats import binom
 import seaborn as sns
-import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import math
 from scipy.stats import norm
 
 def my_norm(x, loc, scale):
-  result = []
-  for i in range(len(x)):
-    result.append((1 / (scale * math.sqrt(2 * math.pi))) * 
-                  math.exp(-1 / 2 * (((x[i] - loc) / scale)**2)))
-  return result
+  return (1 / (scale * np.sqrt(2 * np.pi))) * np.exp(-1 / 2 * (((x - loc) / scale)**2))
 
 plt.clf()
 x = np.linspace(-7, 13, 100)
