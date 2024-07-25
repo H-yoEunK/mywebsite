@@ -2,8 +2,11 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/a/index.html",
       "/posts/hw1/index.html",
-      "/posts/hw2/index.html"
+      "/posts/hw2/index.html",
+      "/posts/hw3/index.html",
+      "/posts/hw3/pre_index.html"
     ]
   }
 ]
