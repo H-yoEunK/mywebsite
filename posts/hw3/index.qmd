@@ -27,7 +27,7 @@ def my_norm(x, loc, scale):
   return result
 
 plt.clf()
-x = np.linspace(-7, 13, 50)
+x = np.linspace(-7, 13, 100)
 y = my_norm(x, 3, 2)
 plt.plot(x, y)
 plt.show()
