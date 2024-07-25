@@ -24,7 +24,7 @@ def my_norm(x, loc, scale):
   for i in range(len(x)):
     result.append((1 / (scale * math.sqrt(2 * math.pi))) * 
                   math.exp(-1 / 2 * (((x[i] - loc) / scale)**2)))
-  return np.array(result)
+  return result
 
 plt.clf()
 x = np.linspace(-7, 13, 50)
