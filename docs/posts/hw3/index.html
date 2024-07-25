@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="권효은">
+<meta name="dcterms.date" content="2024-07-25">
 
-<title>testwebsite</title>
+<title>testwebsite - 숙제3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -145,14 +147,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">1</h1>
-                      </div>
+      <h1 class="title">숙제3</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">bigdata</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>권효은 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 25, 2024</p>
+      </div>
+    </div>
     
       
     </div>
@@ -166,16 +183,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#정규분포-pdf-값을-계산하는-자신만의-python-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그릴-것" id="toc-정규분포-pdf-값을-계산하는-자신만의-python-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그릴-것" class="nav-link active" data-scroll-target="#정규분포-pdf-값을-계산하는-자신만의-python-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그릴-것">정규분포 pdf 값을 계산하는 자신만의 Python 함수를 정의하고 정규분포 mu = 3, sigma = 2의 pdf를 그릴 것</a>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">1</a></li>
+  <li><a href="#정규분포-pdf-값을-계산하는-자신만의-python-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그릴-것" id="toc-정규분포-pdf-값을-계산하는-자신만의-python-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그릴-것" class="nav-link" data-scroll-target="#정규분포-pdf-값을-계산하는-자신만의-python-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그릴-것">정규분포 pdf 값을 계산하는 자신만의 Python 함수를 정의하고 정규분포 mu = 3, sigma = 2의 pdf를 그릴 것</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2</a></li>
   </ul></li>
   <li><a href="#python-scipy-패키지-사용해서-다음과-같은-확률을-구하시오-x-n2-32" id="toc-python-scipy-패키지-사용해서-다음과-같은-확률을-구하시오-x-n2-32" class="nav-link" data-scroll-target="#python-scipy-패키지-사용해서-다음과-같은-확률을-구하시오-x-n2-32">Python scipy 패키지 사용해서 다음과 같은 확률을 구하시오 X ~ N(2, 3^2)</a></li>
   <li><a href="#px-3" id="toc-px-3" class="nav-link" data-scroll-target="#px-3">1) P(X &lt; 3)</a></li>
   <li><a href="#p2-x-5" id="toc-p2-x-5" class="nav-link" data-scroll-target="#p2-x-5">2) P(2 &lt; X &lt; 5)</a></li>
   <li><a href="#px-3-or-x-7" id="toc-px-3-or-x-7" class="nav-link" data-scroll-target="#px-3-or-x-7">3) P(X &lt; 3 or X &gt; 7)</a>
   <ul class="collapse">
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">3</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3</a></li>
   </ul></li>
   <li><a href="#ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다.-상위-5에-해당하는-학생의-점수는" id="toc-ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다.-상위-5에-해당하는-학생의-점수는" class="nav-link" data-scroll-target="#ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다.-상위-5에-해당하는-학생의-점수는">LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다. 상위 5%에 해당하는 학생의 점수는?</a></li>
   </ul>
@@ -188,9 +206,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">1</h3>
+</section>
 <section id="정규분포-pdf-값을-계산하는-자신만의-python-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그릴-것" class="level2">
 <h2 class="anchored" data-anchor-id="정규분포-pdf-값을-계산하는-자신만의-python-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그릴-것">정규분포 pdf 값을 계산하는 자신만의 Python 함수를 정의하고 정규분포 mu = 3, sigma = 2의 pdf를 그릴 것</h2>
-<div id="5926b307" class="cell" data-execution_count="1">
+<div id="865ca51d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> bernoulli</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -220,8 +241,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section">2</h3>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2</h3>
 </section>
 </section>
 <section id="python-scipy-패키지-사용해서-다음과-같은-확률을-구하시오-x-n2-32" class="level2">
@@ -229,39 +250,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="px-3" class="level2">
 <h2 class="anchored" data-anchor-id="px-3">1) P(X &lt; 3)</h2>
-<div id="32c626ed" class="cell" data-execution_count="2">
+<div id="f073e16c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, loc <span class="op">=</span> <span class="dv">2</span>, scale <span class="op">=</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>0.6305586598182363</code></pre>
 </div>
 </div>
 </section>
 <section id="p2-x-5" class="level2">
 <h2 class="anchored" data-anchor-id="p2-x-5">2) P(2 &lt; X &lt; 5)</h2>
-<div id="ac58f49b" class="cell" data-execution_count="3">
+<div id="d7ccf7d8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">-</span> norm.cdf(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>0.3413447460685429</code></pre>
 </div>
 </div>
 </section>
 <section id="px-3-or-x-7" class="level2">
 <h2 class="anchored" data-anchor-id="px-3-or-x-7">3) P(X &lt; 3 or X &gt; 7)</h2>
-<div id="1c518eb6" class="cell" data-execution_count="4">
+<div id="25d46f72" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">-</span> (norm.cdf(<span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">-</span> norm.cdf(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>0.678349012091051</code></pre>
 </div>
 </div>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1">3</h3>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">3</h3>
 </section>
 </section>
 <section id="ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다.-상위-5에-해당하는-학생의-점수는" class="level2">
 <h2 class="anchored" data-anchor-id="ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다.-상위-5에-해당하는-학생의-점수는">LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다. 상위 5%에 해당하는 학생의 점수는?</h2>
-<div id="a77df520" class="cell" data-execution_count="5">
+<div id="fdfe02da" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>norm.ppf(<span class="fl">0.95</span>, loc <span class="op">=</span> <span class="dv">30</span>, scale <span class="op">=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>33.28970725390295</code></pre>
 </div>
 </div>
