@@ -1,0 +1,12 @@
+{
+  "hash": "a8656c9b72a4111f4236340a8bd456a4",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: 숙제4\nauthor: 권효은\ndate: '2024-07-29'\ncategories:\n  - bigdata\n---\n\n### 표본분산 n-1 vs n\n\n표본분산 계산 시 왜 n-1로 나누는지 알아보도록 하겠습니다.\n\n균일분포 (3, 7)에서 20개의 표본을 뽑아서 분산을 2가지 방법으로 추정해보세요.\n\n## 1. n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요. (10000개 사용)\n\n::: {#b2a50bd1 .cell execution_count=1}\n``` {.python .cell-code}\nfrom scipy.stats import uniform\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\nx = uniform.rvs(loc = 3, scale = 4, size = 200000).reshape(-1, 20)\ns_2 = np.var(x, axis = 1, ddof = 1)\nsns.histplot(s_2)\nplt.show()\nplt.clf()\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=593 height=411}\n:::\n\n::: {.cell-output .cell-output-display}\n```\n<Figure size 672x480 with 0 Axes>\n```\n:::\n:::\n\n\n::: {#f1047c7a .cell execution_count=2}\n``` {.python .cell-code}\nk_2 = np.var(x, axis = 1, ddof = 0)\nsns.histplot(k_2)\nplt.show()\nplt.clf()\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-3-output-1.png){width=593 height=411}\n:::\n\n::: {.cell-output .cell-output-display}\n```\n<Figure size 672x480 with 0 Axes>\n```\n:::\n:::\n\n\n## 2. 각 분포 그래프 모분산의 위치에 녹색 막대를 그려주세요.\n\n::: {#196a7105 .cell execution_count=3}\n``` {.python .cell-code}\nvar = np.var(x)\nsns.histplot(s_2)\nplt.axvline(x = var, color = 'red', linestyle = '--', linewidth = 1)\nplt.show()\nplt.clf()\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-4-output-1.png){width=593 height=411}\n:::\n\n::: {.cell-output .cell-output-display}\n```\n<Figure size 672x480 with 0 Axes>\n```\n:::\n:::\n\n\n::: {#fa7ca311 .cell execution_count=4}\n``` {.python .cell-code}\nsns.histplot(k_2)\nplt.axvline(x = var, color = 'red', linestyle = '--', linewidth = 1)\nplt.show()\nplt.clf()\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-5-output-1.png){width=593 height=411}\n:::\n\n::: {.cell-output .cell-output-display}\n```\n<Figure size 672x480 with 0 Axes>\n```\n:::\n:::\n\n\n## 3. 결과를 살펴보고, 왜 n-1로 나눈 것을 분산을 추정하는 지표로 사용하는 것이 타당한지 작성해 주세요.\n\nn-1로 나눈 분포가 모분산을 더 잘 드러냄\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -242,7 +242,7 @@
     "href": "blog.html",
     "title": "myblog",
     "section": "",
-    "text": "project1 - 기역조\n\n\n\n\n\n\nproject\n\n\n\n\n\n\n\n\n\nJul 24, 2024\n\n\n강남규, 권효은, 김연예진, 김연진\n\n\n\n\n\n\n\n\n\n\n\n\n숙제1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 15, 2024\n\n\n권효은\n\n\n\n\n\n\n\n\n\n\n\n\n숙제2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 16, 2024\n\n\n권효은\n\n\n\n\n\n\n\n\n\n\n\n\n숙제3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 25, 2024\n\n\n권효은\n\n\n\n\n\n\n\n\n\n\n\n\ntmp\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 22, 2024\n\n\n권효은\n\n\n\n\n\n\nNo matching items"
+    "text": "project1 - 기역조\n\n\n\n\n\n\nproject\n\n\n\n\n\n\n\n\n\nJul 24, 2024\n\n\n강남규, 권효은, 김연예진, 김연진\n\n\n\n\n\n\n\n\n\n\n\n\n숙제1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 15, 2024\n\n\n권효은\n\n\n\n\n\n\n\n\n\n\n\n\n숙제2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 16, 2024\n\n\n권효은\n\n\n\n\n\n\n\n\n\n\n\n\n숙제3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 25, 2024\n\n\n권효은\n\n\n\n\n\n\n\n\n\n\n\n\n숙제4\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 29, 2024\n\n\n권효은\n\n\n\n\n\n\n\n\n\n\n\n\ntmp\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 22, 2024\n\n\n권효은\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/hw2/index.html#자동차-배기량에-따라-고속도로-연비가-다른지-알아보려고-합니다.-displ배기량이-4-이하인-자동차와-5-이상인-자동차-중-어떤-자동차의-hwy고속도로-연비-평균이-더-높은지-알아보세요.",
@@ -607,5 +607,40 @@
     "title": "tmp",
     "section": "인터랙티브 막대그래프 그리기",
     "text": "인터랙티브 막대그래프 그리기\n\ndf = mpg.groupby('category', as_index = False).agg(n = ('category', 'count'))\ndf\n\n\n\n\n\n\n\n\ncategory\nn\n\n\n\n\n0\n2seater\n5\n\n\n1\ncompact\n47\n\n\n2\nmidsize\n41\n\n\n3\nminivan\n11\n\n\n4\npickup\n33\n\n\n5\nsubcompact\n35\n\n\n6\nsuv\n62\n\n\n\n\n\n\n\n\npx.bar(data_frame = df, x = 'category', y = 'n', color = 'category')"
+  },
+  {
+    "objectID": "study/1.html",
+    "href": "study/1.html",
+    "title": "stat1",
+    "section": "",
+    "text": "import numpy as np\nimport matplotlib.pyplot as plt\n\n\nnp.random.rand(1)\n\narray([0.85067869])\n\n\n랜덤 상수 하나 생성 (0 ~ 1)\n\ndef Y(num, p):\n  x = np.random.rand(num)\n  return np.where(x &lt; p, 1, 0)\n\nY(10, 0.5)\n\narray([1, 0, 0, 1, 1, 1, 1, 1, 1, 1])\n\n\n베르누이 확률 변수 p 만드는 함수\n\ndef Z():\n  x = np.random.rand(1)\n  return np.where(x &lt; 0.2, 0, np.where(x &lt; 0.7, 1, 2))\n\nZ()[0]\n\n0\n\n\n가질 수 있는 값: 0, 1, 2\n각각의 확률: 20%, 50%, 30%\nnp.where(condition, [x, y, ]/): 조건에 따라 선택된 요소를 반환\n\nstat2\n\ndata = np.random.rand(10)\nplt.hist(data, bins = 30, alpha = 0.7, color = \"blue\")\nplt.title('Histogram of Numpy Vector')\nplt.xlabel('Value')\nplt.ylabel('Frequency')\nplt.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nmatplotlib.pyplot.hist(x, bins, range, density, weights, cumulativee, bottom, histtype='bar', align='mid', orientation='vertical', rwidth, log, color, label, stacked, *, data, **kwargs)\nbins: 가로축 구간의 개수\nalpha: 투명도\n\nprint(np.random.rand(50000).reshape(-1, 5))\n\nmean = np.random.rand(50000).reshape(-1, 5).mean(axis = 1)\nplt.hist(mean, color = 'red')\nplt.show()\n\n[[0.64477511 0.91403148 0.10325662 0.18867058 0.43236832]\n [0.00521373 0.19646995 0.8145599  0.2097239  0.21309707]\n [0.9777463  0.78227045 0.45545333 0.61221334 0.83245628]\n ...\n [0.48498109 0.83108408 0.51344464 0.96845567 0.28902907]\n [0.76904988 0.09365468 0.77893706 0.76064696 0.49359719]\n [0.32074148 0.63011237 0.94599423 0.23052853 0.18030512]]\n\n\n\n\n\n\n\n\n\n5개 뽑아서 10000번 반복하고 그 표본평균을 히스토그램으로 쌓아서 경향 파악\n5개를 10000번 반복하는 걸 50000개 뽑는 걸로 합치고, 구분하기 위해 reshape(row, column)\n\nnp.unique((np.arange(33) - 16) **2)\n\narray([  0,   1,   4,   9,  16,  25,  36,  49,  64,  81, 100, 121, 144,\n       169, 196, 225, 256])\n\n\nnumpy.unique(ar): 중복된 값을 제거\n\nx = np.arange(4)\npro_x = np.array([1/6, 2/6, 2/6, 1/6])\n\nEx = sum(x * pro_x) # 기댓값\nExx = sum(x**2 * pro_x) # E[X^2]\n\n# Var(X) = E[X^2] - (E[X])^2\nExx - Ex**2\n\n# or E[(X - E[X])**2]\nsum((x - Ex)**2 * pro_x)\n\n0.9166666666666666\n\n\nX = 0, 1, 2, 3이고 확률이 1/6, 2/6, 2/6, 1/6일 때 분산\n\nx = np.arange(99)\narr = np.concatenate((np.arange(1, 50), np.arange(50, 0, -1)))\npro_x = arr / 2500\n\nEx = sum(x * pro_x)\nExx = sum(x**2 * pro_x)\nExx - Ex**2\n\n416.5000000000009\n\n\n0에서부터 98까지의 정수, 1/2500, 2/2500, 3/2500, … 50/2500, … 1/2500일 때 분산은?\nnp.concatenate(): 기존 축을 따라 배열 시퀀스를 연결 (axis=0이면 행(상하), axis=1이면 열 방향(좌우))"
+  },
+  {
+    "objectID": "posts/hw4/index.html",
+    "href": "posts/hw4/index.html",
+    "title": "숙제4",
+    "section": "",
+    "text": "표본분산 계산 시 왜 n-1로 나누는지 알아보도록 하겠습니다.\n균일분포 (3, 7)에서 20개의 표본을 뽑아서 분산을 2가지 방법으로 추정해보세요."
+  },
+  {
+    "objectID": "posts/hw4/index.html#n-1로-나눈-것을-s_2-n으로-나눈-것을-k_2로-정의하고-s_2의-분포와-k_2의-분포를-그려주세요.-10000개-사용",
+    "href": "posts/hw4/index.html#n-1로-나눈-것을-s_2-n으로-나눈-것을-k_2로-정의하고-s_2의-분포와-k_2의-분포를-그려주세요.-10000개-사용",
+    "title": "숙제4",
+    "section": "1. n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요. (10000개 사용)",
+    "text": "1. n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요. (10000개 사용)\n\nfrom scipy.stats import uniform\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\nx = uniform.rvs(loc = 3, scale = 4, size = 200000).reshape(-1, 20)\ns_2 = np.var(x, axis = 1, ddof = 1)\nsns.histplot(s_2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n\nk_2 = np.var(x, axis = 1, ddof = 0)\nsns.histplot(k_2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "posts/hw4/index.html#각-분포-그래프-모분산의-위치에-녹색-막대를-그려주세요.",
+    "href": "posts/hw4/index.html#각-분포-그래프-모분산의-위치에-녹색-막대를-그려주세요.",
+    "title": "숙제4",
+    "section": "2. 각 분포 그래프 모분산의 위치에 녹색 막대를 그려주세요.",
+    "text": "2. 각 분포 그래프 모분산의 위치에 녹색 막대를 그려주세요.\n\nvar = np.var(x)\nsns.histplot(s_2)\nplt.axvline(x = var, color = 'red', linestyle = '--', linewidth = 1)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n\nsns.histplot(k_2)\nplt.axvline(x = var, color = 'red', linestyle = '--', linewidth = 1)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "posts/hw4/index.html#결과를-살펴보고-왜-n-1로-나눈-것을-분산을-추정하는-지표로-사용하는-것이-타당한지-작성해-주세요.",
+    "href": "posts/hw4/index.html#결과를-살펴보고-왜-n-1로-나눈-것을-분산을-추정하는-지표로-사용하는-것이-타당한지-작성해-주세요.",
+    "title": "숙제4",
+    "section": "3. 결과를 살펴보고, 왜 n-1로 나눈 것을 분산을 추정하는 지표로 사용하는 것이 타당한지 작성해 주세요.",
+    "text": "3. 결과를 살펴보고, 왜 n-1로 나눈 것을 분산을 추정하는 지표로 사용하는 것이 타당한지 작성해 주세요.\nn-1로 나눈 분포가 모분산을 더 잘 드러냄"
   }
 ]

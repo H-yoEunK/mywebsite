@@ -1,0 +1,59 @@
+---
+title: "숙제4"
+author: "권효은"
+date: "2024-07-29"
+categories: [bigdata]
+jupyter: python3
+---
+
+
+### 표본분산 n-1 vs n
+
+표본분산 계산 시 왜 n-1로 나누는지 알아보도록 하겠습니다.
+
+균일분포 (3, 7)에서 20개의 표본을 뽑아서 분산을 2가지 방법으로 추정해보세요.
+
+## 1. n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요. (10000개 사용)
+
+```{python}
+from scipy.stats import uniform
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+x = uniform.rvs(loc = 3, scale = 4, size = 200000).reshape(-1, 20)
+s_2 = np.var(x, axis = 1, ddof = 1)
+sns.histplot(s_2)
+plt.show()
+plt.clf()
+```
+
+```{python}
+k_2 = np.var(x, axis = 1, ddof = 0)
+sns.histplot(k_2)
+plt.show()
+plt.clf()
+```
+
+
+## 2. 각 분포 그래프 모분산의 위치에 녹색 막대를 그려주세요.
+
+```{python}
+var = np.var(x)
+sns.histplot(s_2)
+plt.axvline(x = var, color = 'red', linestyle = '--', linewidth = 1)
+plt.show()
+plt.clf()
+```
+
+```{python}
+sns.histplot(k_2)
+plt.axvline(x = var, color = 'red', linestyle = '--', linewidth = 1)
+plt.show()
+plt.clf()
+```
+
+
+## 3. 결과를 살펴보고, 왜 n-1로 나눈 것을 분산을 추정하는 지표로 사용하는 것이 타당한지 작성해 주세요.
+
+n-1로 나눈 분포가 모분산을 더 잘 드러냄
