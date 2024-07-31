@@ -3,6 +3,7 @@ title: "숙제5"
 author: "권효은"
 date: "2024-07-30"
 categories: [bigdata]
+jupyter: python3
 ---
 
 ### Chapter 9-2 설문 조사 그래프에서 각 성별 95% 신뢰구간 계산 후 그리기
