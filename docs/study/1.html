@@ -176,36 +176,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="230d8b14" class="cell" data-execution_count="1">
+<div id="769f6da1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fb42c1c9" class="cell" data-execution_count="2">
+<div id="d50ac13d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>np.random.rand(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>array([0.85067869])</code></pre>
+<pre><code>array([0.9263501])</code></pre>
 </div>
 </div>
 <p>랜덤 상수 하나 생성 (0 ~ 1)</p>
-<div id="b7f50480" class="cell" data-execution_count="3">
+<div id="eb6cbbd5" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Y(num, p):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> np.random.rand(num)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.where(x <span class="op">&lt;</span> p, <span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Y(<span class="dv">10</span>, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([1, 0, 0, 1, 1, 1, 1, 1, 1, 1])</code></pre>
+<pre><code>array([1, 0, 0, 0, 1, 0, 1, 1, 0, 0])</code></pre>
 </div>
 </div>
 <p>베르누이 확률 변수 p 만드는 함수</p>
-<div id="15373e56" class="cell" data-execution_count="4">
+<div id="518501be" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Z():</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> np.random.rand(<span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.where(x <span class="op">&lt;</span> <span class="fl">0.2</span>, <span class="dv">0</span>, np.where(x <span class="op">&lt;</span> <span class="fl">0.7</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Z()[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>0</code></pre>
+<pre><code>1</code></pre>
 </div>
 </div>
 <p>가질 수 있는 값: 0, 1, 2</p>
@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>np.where(condition, [x, y, ]/)</code>: 조건에 따라 선택된 요소를 반환</p>
 <section id="stat2" class="level3">
 <h3 class="anchored" data-anchor-id="stat2">stat2</h3>
-<div id="e2bdf773" class="cell" data-execution_count="5">
+<div id="ac5a98fe" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.random.rand(<span class="dv">10</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.hist(data, bins <span class="op">=</span> <span class="dv">30</span>, alpha <span class="op">=</span> <span class="fl">0.7</span>, color <span class="op">=</span> <span class="st">"blue"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of Numpy Vector'</span>)</span>
@@ -224,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="1_files/figure-html/cell-6-output-1.png" width="591" height="449" class="figure-img"></p>
+<p><img src="1_files/figure-html/cell-6-output-1.png" width="597" height="449" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -232,20 +232,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>matplotlib.pyplot.hist(x, bins, range, density, weights, cumulativee, bottom, histtype='bar', align='mid', orientation='vertical', rwidth, log, color, label, stacked, *, data, **kwargs)</code></p>
 <p><code>bins</code>: 가로축 구간의 개수</p>
 <p><code>alpha</code>: 투명도</p>
-<div id="dc26d3f4" class="cell" data-execution_count="6">
+<div id="c5de25db" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.random.rand(<span class="dv">50000</span>).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.random.rand(<span class="dv">50000</span>).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>).mean(axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.hist(mean, color <span class="op">=</span> <span class="st">'red'</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[0.64477511 0.91403148 0.10325662 0.18867058 0.43236832]
- [0.00521373 0.19646995 0.8145599  0.2097239  0.21309707]
- [0.9777463  0.78227045 0.45545333 0.61221334 0.83245628]
+<pre><code>[[0.02025505 0.78416005 0.62103856 0.52231985 0.30310415]
+ [0.5348515  0.65671204 0.11814685 0.68545446 0.53731303]
+ [0.08261554 0.57165281 0.85254945 0.65570668 0.59031308]
  ...
- [0.48498109 0.83108408 0.51344464 0.96845567 0.28902907]
- [0.76904988 0.09365468 0.77893706 0.76064696 0.49359719]
- [0.32074148 0.63011237 0.94599423 0.23052853 0.18030512]]</code></pre>
+ [0.869667   0.30960476 0.25279889 0.64376433 0.42554539]
+ [0.1337504  0.15575997 0.90961583 0.03386298 0.42343372]
+ [0.39854412 0.84434568 0.14991629 0.70689568 0.9983759 ]]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>5개 뽑아서 10000번 반복하고 그 표본평균을 히스토그램으로 쌓아서 경향 파악</p>
 <p>5개를 10000번 반복하는 걸 50000개 뽑는 걸로 합치고, 구분하기 위해 <code>reshape(row, column)</code></p>
-<div id="083c7bf7" class="cell" data-execution_count="7">
+<div id="544605e4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.unique((np.arange(<span class="dv">33</span>) <span class="op">-</span> <span class="dv">16</span>) <span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>array([  0,   1,   4,   9,  16,  25,  36,  49,  64,  81, 100, 121, 144,
@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>numpy.unique(ar)</code>: 중복된 값을 제거</p>
-<div id="41bf9948" class="cell" data-execution_count="8">
+<div id="f33a562b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">4</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pro_x <span class="op">=</span> np.array([<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>, <span class="dv">2</span><span class="op">/</span><span class="dv">6</span>, <span class="dv">2</span><span class="op">/</span><span class="dv">6</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">6</span>])</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>X = 0, 1, 2, 3이고 확률이 1/6, 2/6, 2/6, 1/6일 때 분산</p>
-<div id="ca9a223e" class="cell" data-execution_count="9">
+<div id="b13d68af" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">99</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.concatenate((np.arange(<span class="dv">1</span>, <span class="dv">50</span>), np.arange(<span class="dv">50</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>)))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pro_x <span class="op">=</span> arr <span class="op">/</span> <span class="dv">2500</span></span>

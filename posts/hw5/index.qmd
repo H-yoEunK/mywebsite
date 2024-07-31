@@ -1,0 +1,55 @@
+---
+title: "숙제5"
+author: "권효은"
+date: "2024-07-30"
+categories: [bigdata]
+---
+
+### Chapter 9-2 설문 조사 그래프에서 각 성별 95% 신뢰구간 계산 후 그리기
+
+### norm.ppf() 사용해서 그릴 것. 모분산은 표본 분산을 사용해서 추정
+
+### 위 아래 수직 막대기로 표시
+
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+raw_welfare = pd.read_spss("Koweps_hpwc14_2019_beta2.sav")
+welfare = raw_welfare.copy()
+
+welfare = welfare.rename(columns = { 'h14_g3' : 'sex' , 'p1402_8aq1' : 'income'})
+welfare = welfare[['sex', 'income']]
+welfare["sex"] = np.where(welfare["sex"] == 1, 'male', 'female')
+sex_income = welfare.dropna(subset = "income").groupby("sex", as_index = False).agg(mean_income = ("income", "mean"))
+
+sns.barplot(data = sex_income, x = "sex", y = "mean_income", hue = "sex")
+plt.show()
+```
+
+```{python}
+female_mu = sex_income["mean_income"][0]
+male_mu = sex_income["mean_income"][1]
+
+female_x = welfare.loc[welfare["sex"] == "female"]["income"].dropna()
+male_x = welfare.loc[welfare["sex"] == "male"]["income"].dropna()
+
+female_var = np.var(female_x, ddof = 1)
+male_var = np.var(male_x, ddof = 1)
+
+z = norm.ppf(0.95, loc = 0, scale = 1)
+female_l = female_mu - (z * np.sqrt(female_var) / np.sqrt(len(female_x)))
+female_r = female_mu + (z * np.sqrt(female_var) / np.sqrt(len(female_x)))
+male_l = male_mu - (z * np.sqrt(male_var) / np.sqrt(len(male_x)))
+male_r = male_mu + (z * np.sqrt(male_var) / np.sqrt(len(male_x)))
+
+sns.barplot(data = sex_income, x = "sex", y = "mean_income", hue = "sex")
+plt.vlines(x = "female", ymin = female_l, ymax = female_r, colors = "red")
+plt.vlines(x = "male", ymin = male_l, ymax = male_r, colors = "blue")
+
+plt.show()
+```
+
