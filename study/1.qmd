@@ -1,8 +1,14 @@
 ### stat1
 
 ```{python}
-import numpy as np
+from scipy.stats import bernoulli
+from scipy.stats import binom
+import seaborn as sns
+import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+import math
+from scipy.stats import norm
 ```
 
 ```{python}
@@ -101,4 +107,175 @@ Exx - Ex**2
 0에서부터 98까지의 정수, 1/2500, 2/2500, 3/2500, ... 50/2500, ... 1/2500일 때 분산은?
 
 `np.concatenate()`: 기존 축을 따라 배열 시퀀스를 연결 (`axis=0`이면 행(상하), `axis=1`이면 열 방향(좌우))
+
+
+### stat3
+
+```{python}
+print("베르누이: ", bernoulli.pmf(1, 0.3))
+print("이항분포: ", binom.pmf(0, n=2, p=0.3))
+```
+
+확률질량함수 (pmf): 확률 변수가 갖는 값에 해당하는 확률을 저장하고 있는 함수
+
+`bernoulli.pmf(k, p)`: 베르누이
+
+`binom.pmf(k, n, p)`: 이항분포 (n: 베르누이 확률 변수 더한 개수, p: 1이 나올 확률)
+
+Ex) `binom.pmf(2, n=2, p=0.3)`: 베르누이를 2번 시행, 각 시행에서 1이 나올 확률은 0.3 -> 2가 나올 확률을 구하는 함수 (나올 수 있는 값은 0, 1, 2)
+
+
+Ex) `binom.pmf(np.arange(31), n=30, p=0.3)`: 베르누이를 30번 시행, 각 시행에서 1이 나올 확률은 0.3 -> 0, 1, 2, 3, ... 30이 나올 확률을 구하는 함수 (array로 반환)
+
+```{python}
+math.comb(54, 26)
+```
+
+Combination 쉽게 하기
+
+```{python}
+np.cumprod(np.arange(1, 5))[-1]
+```
+
+[-1]은 그냥 리스트에서 마지막 값 출력한 거임
+
+`np.cumprod(axis, skipna)`: 행/열의 누적곱 (skipna: 결측치를 무시할지)
+
+```{python}
+math.log(24)
+sum(np.log(np.arange(1, 5)))
+```
+
+log(a * b) = log(a) + log(b) 같다
+
+log(24) = log(1) + log(2) + log(3) + log(4) = log(1 * 2 * 3 * 4)
+
+```{python}
+logf_54 = sum(np.log(np.arange(1, 55)))
+logf_26 = sum(np.log(np.arange(1, 27)))
+logf_28 = sum(np.log(np.arange(1, 29)))
+np.exp(logf_54 - (logf_26 + logf_28))
+```
+
+log로 큰 수 54C26 계산하기
+
+```{python}
+math.comb(2, 0) * 0.3**0 * (1 - 0.3)**3
+math.comb(2, 1) * 0.3**1 * (1 - 0.3)**1
+math.comb(2, 2) * 0.3**2 * (1 - 0.3)**0
+
+binom.pmf(0, 2, 0.3)
+binom.pmf(1, 2, 0.3)
+binom.pmf(2, 2, 0.3)
+```
+
+위 아래 의미가 같다
+
+2C0 * (1을 뽑을 확률^1 개수) * (0을 뽑을 확률^0 개수) = n개 중에 r개를 뽑을 경우의 수 * 각 확률
+
+```{python}
+# P(2 < X <= 8) = 8
+binom.pmf(np.arange(3, 9), n = 10, p = 0.36).sum()
+```
+
+연속이 아니고 이산이면 pmf로 저렇게 구할 수 있음
+
+```{python}
+bernoulli.rvs(p = 0.3, size = 1)
+bernoulli.rvs(0.3)
+```
+
+rvs (random variates sample): 분포로 부터 난수를 생성, 표본 추출 함수
+
+Ex) `bernoulli.rvs(p = 0.3, size = 1)`: 1이 나올 확률 0.3으로 1회 뽑기
+
+```{python}
+# X ~ B(30, 0.26)
+binom.rvs(n = 30, p = 0.26, size = 30)
+```
+
+`bernoulli.rvs(0.3) + bernoulli.rvs(0.3)` = `binom.rvs(n = 2, p = 0.3)` 
+
+`binom.rvs(n, p, size)`: n은 총 시행 횟수, p는 단일 성공 확률, size 생성할 난수의 수
+
+이때 기댓값 E(X) = 30 * 0.26
+
+```{python}
+# X ~ B(30, 0.26) 시각화
+arr = binom.pmf(np.arange(31), 30, 0.26)
+plt.bar(np.arange(31), arr)
+plt.show()
+plt.clf()
+```
+
+30번 시행했을 때 분포를 시각화하려면 확률 변수 범위는 0부터 30까지, 각 시행에 대응되는 확률 값을 pmf로 연산해 arr에 저장한다
+
+x 값은 0 ~ 30, y는 확률 arr
+
+```{python}
+# 교재 p207 df로 만들어서 막대그래프로 표시하기
+x = np.arange(31)
+df = pd.DataFrame({"x": x, "prob": arr})
+sns.barplot(data = df, x = "x", y = arr)
+plt.show()
+```
+
+df로 만들어서 막대그래프 그리는데 DataFrame 선언부 확인
+
+```{python}
+# F_X(x) = P(X <= x)
+binom.cdf(4, n=30, p=0.26)
+
+# P(13 < X < 20) = ?
+binom.cdf(19, n=30, p=0.26) - binom.cdf(13, n=30, p=0.26)
+```
+
+누적확률분포 함수 cdf (Cumulative Dist. Function): 확률 변수가 X와 같거나 작을 확률
+
+`binom.cdf(k, n, p)`: 베르누이를 n번 시행했을 때 p의 성공 확률로 k번 이하로 나올 확률
+
+```{python}
+binom.rvs(n=30, p=0.26, size=10)
+```
+
+성공 확률 0.26의 확률로 30번 했을 때 총합을 10개 생성 <나온 값의 결과!>
+
+```{python}
+x_1 = binom.rvs(n=30, p=0.26, size=10)
+x = np.arange(31)
+prob_x = binom.pmf(x, n=30, p=0.26)
+sns.barplot(prob_x)
+plt.scatter(x_1, np.repeat(0.002, 10), color = 'red', zorder = 100, s = 5)
+plt.axvline(x = 7.8, color = 'lightgreen', linestyle = '--', linewidth = 2)
+plt.show()
+```
+
+x는 전체 시행 가운데 성공의 횟수(구하는 확률 값), n은 전체 시행 횟수, p는 독립 시행의 성공 확률
+
+`x_1 = binom.rvs(n=30, p=0.26, size=10)`: 0.26의 성공확률을 30번 시행한 것의 총합을 10번
+
+`prob_x = binom.pmf(x, n=30, p=0.26)`: prob_x에는 30번 던져서 0번 성공, 1번 성공, ... 30번 성공까지의 확률이 들어감 <확률!>
+
+`plt.scatter(x_1, np.repeat(0.002, 10), color = 'red', zorder = 100, s = 5)`: y는 0.002 고정, x는 확률 변수, zorder는 그리는 순서, s는 size
+
+`plt.axvline(x = 7.8, color = 'lightgreen', linestyle = '--', linewidth = 2)`: 0.26 * 30 = 0.78은 기댓값
+
+파랑 벽돌의 분포가 기댓값과 비슷하다?
+
+```{python}
+binom.ppf(0.5, n = 30, p = 0.26) # 8까지 다 더하면 X = 0.5가 된다는 뜻
+```
+
+`binom.ppf(q, n, p)`: 누적 확률이 q 이상이 되는 k(=x)를 구함
+
+```{python}
+norm.pdf(0, loc = 0, scale = 1)
+norm.pdf(5, loc = 3, scale = 4)
+k = np.linspace(-5, 5, 100)
+```
+
+`norm.pdf(x, loc, scale)`: 정규 분포의 확률 밀도 함수 값 반환 (y)
+
+`np.linspace(start, stop, num)`: start에서 stop까지 num개의 요소를 만들어라
+
 
