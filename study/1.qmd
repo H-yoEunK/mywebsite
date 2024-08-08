@@ -403,3 +403,12 @@ plt.plot(x_values, pdf_values, color = "red", linewidth = 1)
 plt.show()
 ```
 
+uniform 기반으로 랜덤하게 20 * 1000개 뽑음
+
+1000행 20열에서 각 행마다 mean 구해서 1000개의 mean 값을 blue_x로 받음
+
+blue_x의 값 범위에서 100개를 균일하게 뽑아 정규 분포를 그리면
+
+선 그래프(정규 분포)가 막대 그래프(uniform 표본 평균의 분포)를 완벽히 추종하지 않음
+
+평균은 같으나 분산은 1.333333 / 20 ← n 만큼 나눠줘야 하기 때문?
